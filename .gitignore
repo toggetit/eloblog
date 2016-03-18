@@ -1,0 +1,12 @@
+# Emacs temp files
+*~
+
+# Database
+db.sqlite3
+
+# Migration files
+blog/migrations
+
+# From internet
+__pycache__/
+*.py[cod]

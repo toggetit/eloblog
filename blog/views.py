@@ -13,3 +13,6 @@ def index(request):
 def post(request, entry_id):
     post = get_object_or_404(Entry, pk=entry_id)
     return render(request, 'blog/post.html', {'post': post})
+
+def about(request):
+    return render(request, 'blog/about.html')
