@@ -16,3 +16,9 @@ def post(request, entry_id):
 
 def about(request):
     return render(request, 'blog/about.html')
+
+def prevposts(request, page):
+    if (page == '0') or (page == '1'):
+        return index(request)
+    else:
+        return HttpResponse(page)
