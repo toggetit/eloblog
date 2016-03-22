@@ -19,7 +19,7 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def listing(request, pagenum):
-    posts = Entry.objects.all()
+    posts = Entry.objects.order_by('-cdate')
     paginator = Paginator(posts, 5) # Show 10 contacts per page
 
     #page = request.GET.get('page')
