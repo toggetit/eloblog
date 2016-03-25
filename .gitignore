@@ -7,6 +7,9 @@ db.sqlite3
 # Migration files
 blog/migrations
 
+# Media files
+media
+
 # From internet
 __pycache__/
 *.py[cod]

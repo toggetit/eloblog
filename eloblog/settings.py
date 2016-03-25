@@ -38,11 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    #'tinymce',
-    #'sorl.thumbnail',
-    #'mce_filebrowser',
-    #'redactor',
-    'django_summernote',
+    'ckeditor',
+    'form_utils',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,18 +123,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TinyMCE
-'''
-TINYMCE_DEFAULT_CONFIG = {
-        'plugins': "table,spellchecker,paste,searchreplace",
-        'theme': "advanced",
-        'file_browser_callback': 'mce_filebrowser',
-    }
-TINYMCE_SPELLCHECKER = True
+# Ckeditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
-REDACTOR_OPTIONS = {'lang': 'ru'}
-REDACTOR_UPLOAD = '/home/muxa/workspace/eloblog/blog/uploads/'
-'''
-SUMMERNOTE_CONFIG = {
-        'lang': 'ru-RU',
-}
+# Media
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+#MEDIA_ROOT = '/home/muxa/workspace/eloblog/media'
+MEDIA_URL = '/media/'

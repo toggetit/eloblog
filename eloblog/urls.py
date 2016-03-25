@@ -18,11 +18,13 @@ from django.contrib import admin
 
 from django.conf.urls import include
 
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace="blog")),
-    #url(r'^tinymce/', include('tinymce.urls')),
-    #url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
-    #url(r'^redactor/', include('redactor.urls')),
-    url(r'^summernote/', include('django_summernote.urls')),
-]
+    url(r'^ckeditor/', include('ckeditor.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
