@@ -20,7 +20,9 @@ from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #url(r'^post/', include('blog.urls')),
     url(r'^blog/', include('blog.urls', namespace="blog")),
-    url(r'^tinymce/', include('tinymce.urls')),
+    #url(r'^tinymce/', include('tinymce.urls')),
+    #url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
+    #url(r'^redactor/', include('redactor.urls')),
+    url(r'^summernote/', include('django_summernote.urls')),
 ]

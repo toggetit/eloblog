@@ -1,9 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import Entry
 
-class EntryAdmin(admin.ModelAdmin):
-        list_display = ('title', 'edate', 'cdate')
+from django_summernote.admin import SummernoteModelAdmin
 
-admin.site.register(Entry, EntryAdmin)
+admin.site.register(Entry, SummernoteModelAdmin)

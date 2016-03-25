@@ -6,10 +6,14 @@ from .models import Entry
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
+postsPerPage = 5
+
+
 def index(request):
-    latest_posts = Entry.objects.order_by('-cdate')[:5]
-    context = {'latest_posts': latest_posts}
-    return render(request, 'blog/index.html', context)
+    latest_posts = Entry.objects.order_by('-cdate')[:postsPerPage]
+    hasNext = True if Entry.objects.count() > postsPerPage else False
+    return render(request, 'blog/index.html', {'latest_posts': latest_posts, 'hasNext' : hasNext})
 
 def post(request, entry_id):
     post = get_object_or_404(Entry, pk=entry_id)
@@ -19,10 +23,9 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def listing(request, pagenum):
-    posts = Entry.objects.order_by('-cdate')
-    paginator = Paginator(posts, 5) # Show 10 contacts per page
 
-    #page = request.GET.get('page')
+    posts = Entry.objects.order_by('-cdate')
+    paginator = Paginator(posts, postPerPage)
     try:
         postlist = paginator.page(pagenum)
     except PageNotAnInteger:

@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'tinymce',
-    'ckeditor',
+    #'tinymce',
+    #'sorl.thumbnail',
+    #'mce_filebrowser',
+    #'redactor',
+    'django_summernote',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,18 +127,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # TinyMCE
-
+'''
 TINYMCE_DEFAULT_CONFIG = {
         'plugins': "table,spellchecker,paste,searchreplace",
         'theme': "advanced",
+        'file_browser_callback': 'mce_filebrowser',
     }
 TINYMCE_SPELLCHECKER = True
 
-# --------
-
-# ckeditor
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Advanced'
-        },
+REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_UPLOAD = '/home/muxa/workspace/eloblog/blog/uploads/'
+'''
+SUMMERNOTE_CONFIG = {
+        'lang': 'ru-RU',
 }
