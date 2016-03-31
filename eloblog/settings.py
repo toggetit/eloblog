@@ -28,7 +28,7 @@ config.read(os.path.join(BASE_DIR, 'settings.ini'))
 # Debug version
 SECRET_KEY = '1-_15q7)v&ru$zc52z6bk*#acwk@(#5kgqp&7dzh%sf_l029ol'
 # Production
-SECRET_KEY = config.get('secrets', 'SECRET_KEY')
+#SECRET_KEY = config.get('secrets', 'SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -46,11 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'blog',
     'ckeditor',
     'form_utils',
-    'disqus',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -96,10 +94,10 @@ DATABASES = {
                 # For sqlite3
                 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         
-                'USER': config.get('database', 'USER'),
-                'PASSWORD': config.get('database', 'PASSWORD'),
-                'HOST': config.get('database', 'HOST'),
-                'PORT': config.get('database', 'PORT'),
+                #'USER': config.get('database', 'USER'),
+                #'PASSWORD': config.get('database', 'PASSWORD'),
+                #'HOST': config.get('database', 'HOST'),
+                #'PORT': config.get('database', 'PORT'),
     }
 }
 
@@ -149,11 +147,4 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 # Media
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = '/media/'
-
-# Disqus
-DISQUS_API_KEY = config.get('disqus', 'KEY')
-DISQUS_WEBSITE_SHORTNAME = config.get('disqus', 'SHORTNAME')
-
-# Site (temp)
-#SITE_ID = 1
 
