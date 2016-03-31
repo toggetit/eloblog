@@ -10,6 +10,9 @@ blog/migrations
 # Media files
 media
 
+# Settings file (private part)
+settings.ini
+
 # From internet
 __pycache__/
 *.py[cod]
