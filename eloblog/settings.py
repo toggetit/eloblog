@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'blog',
     'ckeditor',
     'form_utils',
+    'disqus',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -146,5 +148,12 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 # Media
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-#MEDIA_ROOT = '/home/muxa/workspace/eloblog/media'
 MEDIA_URL = '/media/'
+
+# Disqus
+DISQUS_API_KEY = config.get('disqus', 'KEY')
+DISQUS_WEBSITE_SHORTNAME = config.get('disqus', 'SHORTNAME')
+
+# Site (temp)
+#SITE_ID = 1
+
