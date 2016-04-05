@@ -151,8 +151,10 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
         'default': {
                     'toolbar': 'full',
-                    'height': 300,
-                    'width': 300,
+                    'height': 800,
+                    'width': 1024,
                 },
     }
 
+#CKEDITOR_JQUERY_URL = 'eloblog/static/js/jquery.min.js'
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
