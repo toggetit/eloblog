@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
     'ckeditor',
     'form_utils',
+    'eloblog',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -140,11 +140,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = '/media/'
+
 # Ckeditor
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
-# Media
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-MEDIA_URL = '/media/'
+CKEDITOR_CONFIGS = {
+        'default': {
+                    'toolbar': 'full',
+                    'height': 300,
+                    'width': 300,
+                },
+    }
 

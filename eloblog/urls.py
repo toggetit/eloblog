@@ -13,18 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
 from django.contrib import admin
 
-from django.conf.urls import include
-
+from django.conf.urls import include, url
 
 from django.conf import settings
 from django.conf.urls.static import static
 
+from . import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls', namespace="blog")),
     url(r'^ckeditor/', include('ckeditor.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+    url(r'^$', views.index),
+    #Страницы постово
+    url(r'^post/(?P<entry_id>[0-9]+)/$', views.post),
+    #Предыдущие записи
+    url(r'^page/(?P<pagenum>[0-9]+)/$', views.listing),
+    
+    url(r'^about/$', views.about),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

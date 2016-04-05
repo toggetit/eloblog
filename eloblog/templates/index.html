@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "base.html" %}
 
 {% load staticfiles %}
 
@@ -19,7 +19,7 @@
         {% for post in latest_posts %}
     
         <div class="post-preview">
-            <a href="{% url 'blog:post' post.id %}">
+            <a href="{% url 'views.post' post.id %}">
                 <h2 class="post-title">{{ post.title }}</h2>
                 <h3 class="post-subtitle">{{ post.text|truncatewords:200|safe }}</h3>
             </a>
@@ -44,7 +44,7 @@
 
     {% if hasNext %}
         <li class="next">
-        <a href="/blog/page2">Туда &rarr;</a>
+        <a href="/page2">Туда &rarr;</a>
         </li>
     {% endif %}
 
