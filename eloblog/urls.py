@@ -30,7 +30,7 @@ urlpatterns = [
     #Страницы постово
     url(r'^post/(?P<entry_id>[0-9]+)/$', views.post),
     #Предыдущие записи
-    url(r'^page/(?P<pagenum>[0-9]+)/$', views.listing),
+    url(r'^page/(?P<pagenum>[0-9]+)/$', views.page),
     
     url(r'^about/$', views.about),
     

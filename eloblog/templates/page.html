@@ -17,7 +17,7 @@
     {% for post in postlist %}
     
         <div class="post-preview">
-            <a href="{% url 'blog:post' post.id %}">
+            <a href="{% url 'views.post' post.id %}">
                 <h2 class="post-title">{{ post.title }}</h2>
                 <h3 class="post-subtitle">{{ post.text|truncatewords:200|safe }}</h3>
             </a>
@@ -33,13 +33,13 @@
 
     {% if postlist.has_previous %}
         <li class="previous">
-        <a href="/blog/page{{ postlist.previous_page_number }}">&larr; Сюда</a>
+        <a href="{% url 'views.page' postlist.previous_page_number %}">&larr; Сюда</a>
         </li>
     {% endif %}
 	
     {% if postlist.has_next %}
 	<li class="next">
-        <a href="/blog/page{{ postlist.next_page_number }}">Туда &rarr;</a>
+        <a href="{% url 'views.page' postlist.next_page_number %}">Туда &rarr;</a>
         </li>
     {% endif %}   	
 

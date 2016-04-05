@@ -9,7 +9,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 postsPerPage = 5
 
-
 def index(request):
     latest_posts = Entry.objects.order_by('-cdate')[:postsPerPage]
     hasNext = True if Entry.objects.count() > postsPerPage else False
@@ -22,10 +21,10 @@ def post(request, entry_id):
 def about(request):
     return render(request, 'about.html')
 
-def listing(request, pagenum):
+def page(request, pagenum):
 
     posts = Entry.objects.order_by('-cdate')
-    paginator = Paginator(posts, postPerPage)
+    paginator = Paginator(posts, 5)
     try:
         postlist = paginator.page(pagenum)
     except PageNotAnInteger:
