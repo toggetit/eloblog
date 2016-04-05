@@ -10,7 +10,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 postsPerPage = 5
 
 def index(request):
-    latest_posts = Entry.objects.order_by('-cdate')[:postsPerPage]
+    latest_posts = (post for post in Entry.objects.order_by('-cdate')[:postsPerPage] if not post.isDraft)
     hasNext = True if Entry.objects.count() > postsPerPage else False
     return render(request, 'index.html', {'latest_posts': latest_posts, 'hasNext' : hasNext})
 
