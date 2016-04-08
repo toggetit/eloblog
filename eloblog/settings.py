@@ -26,13 +26,13 @@ config.read(os.path.join(BASE_DIR, 'settings.ini'))
 # Keep it secret. Keep it safe.
 
 # Debug version
-SECRET_KEY = '1-_15q7)v&ru$zc52z6bk*#acwk@(#5kgqp&7dzh%sf_l029ol'
+#SECRET_KEY = '1-_15q7)v&ru$zc52z6bk*#acwk@(#5kgqp&7dzh%sf_l029ol'
 # Production
-#SECRET_KEY = config.get('secrets', 'SECRET_KEY')
+SECRET_KEY = config.get('global', 'SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.get('global', 'DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -88,16 +88,16 @@ WSGI_APPLICATION = 'eloblog.wsgi.application'
 
 DATABASES = {
     'default': {
-                'ENGINE': config.get('database', 'ENGINE'),
+                #'ENGINE': config.get('database', 'ENGINE'),
                 # For mysql
-                #'NAME': config.get('database', 'NAME'),
+                'NAME': config.get('database', 'NAME'),
                 # For sqlite3
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         
-                #'USER': config.get('database', 'USER'),
-                #'PASSWORD': config.get('database', 'PASSWORD'),
-                #'HOST': config.get('database', 'HOST'),
-                #'PORT': config.get('database', 'PORT'),
+                'USER': config.get('database', 'USER'),
+                'PASSWORD': config.get('database', 'PASSWORD'),
+                'HOST': config.get('database', 'HOST'),
+                'PORT': config.get('database', 'PORT'),
     }
 }
 
