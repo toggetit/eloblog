@@ -7,6 +7,9 @@ db.sqlite3
 # Migration files
 eloblog/migrations/
 
+# Static files
+static
+
 # Media files
 media
 
