@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from configparser import RawConfigParser
+from configparser import ConfigParser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-config = RawConfigParser()
+config = ConfigParser()
 config.read(os.path.join(BASE_DIR, 'settings.ini'))
 
 # Quick-start development settings - unsuitable for production
@@ -26,15 +26,14 @@ config.read(os.path.join(BASE_DIR, 'settings.ini'))
 # Keep it secret. Keep it safe.
 
 # Debug version
-#SECRET_KEY = '1-_15q7)v&ru$zc52z6bk*#acwk@(#5kgqp&7dzh%sf_l029ol'
-# Production
 SECRET_KEY = config.get('global', 'SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config.get('global', 'DEBUG')
+DEBUG = config.getboolean('global', 'DEBUG')
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = '*'
 
 
 # Application definition
@@ -156,5 +155,4 @@ CKEDITOR_CONFIGS = {
                 },
     }
 
-#CKEDITOR_JQUERY_URL = 'eloblog/static/js/jquery.min.js'
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
